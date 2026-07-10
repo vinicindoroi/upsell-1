@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factura - YouTube Pay</title>
+    <!-- Importa a fonte cursiva da assinatura real -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0; /* Remove o espaçamento externo para preencher 100% da tela */
+            background: transparent;
+            font-family: Arial, sans-serif;
+            text-align: left;
+            -webkit-font-smoothing: antialiased;
+        }
+        .invoice-container {
+            border: none; /* Remove a borda cinza externa dupla */
+            border-radius: 16px; /* Bordas arredondadas idênticas aos balões do Typebot */
+            overflow: hidden;
+            background: #fff;
+            width: 100%; /* Estica para ocupar toda a largura lateral sem sobras */
+            box-sizing: border-box;
+        }
+        .yrHead {
+            background: #1a1a1a;
+            padding: 8px 14px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .yrHeadLogo {
+            color: #fff;
+            font-size: 13.5px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+        }
+        .yrHeadSub {
+            color: #aaa;
+            font-size: 10px;
+        }
+        .yrSub {
+            background: #FF0000;
+            padding: 5px 14px;
+        }
+        .yrSubTitle {
+            color: #fff;
+            font-size: 15px;
+            font-weight: 900;
+            letter-spacing: 1.5px;
+            margin: 0;
+        }
+        .yrBody {
+            padding: 10px 14px 6px;
+            background: #fff;
+        }
+        .yrFromTo {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px;
+            font-size: 10.5px;
+            line-height: 1.35;
+        }
+        .yrFromTitle, .yrToTitle {
+            color: #FF0000;
+            font-weight: 700;
+            margin-bottom: 1px;
+        }
+        .yrFromVal, .yrToVal {
+            color: #333;
+            font-weight: 600;
+        }
+        .yrFromSub, .yrToSub {
+            color: #666;
+        }
+        .yrTable {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 10.5px;
+            margin-bottom: 5px;
+        }
+        .yrTable th {
+            background: #1a1a1a;
+            color: #fff;
+            padding: 6px 8px;
+            text-align: left;
+        }
+        .yrTable td {
+            padding: 6px 8px;
+            color: #333;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .yrTotalRow {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 10px;
+            padding: 4px 0 5px;
+            border-top: 1.5px solid #FF0000;
+        }
+        .yrTotalLabel {
+            font-size: 11px;
+            font-weight: 700;
+            color: #333;
+        }
+        .yrTotalVal {
+            font-size: 15px;
+            font-weight: 900;
+            color: #FF0000;
+        }
+        .yrSignatureRow {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            padding: 6px 14px 8px;
+            background: #fff;
+            border-top: 1px solid #ebebeb;
+        }
+        .yrMeta {
+            font-size: 8.5px;
+            color: #aaa;
+            line-height: 1.4;
+        }
+        .yrMeta strong {
+            color: #888;
+        }
+        .yrMetaNote {
+            margin-top: 1px;
+            font-size: 7.5px;
+            color: #ccc;
+            max-width: 115px;
+            line-height: 1.35;
+        }
+        .yrSignArea {
+            text-align: right;
+            min-width: 110px;
+        }
+        .yrSignVal {
+            font-family: 'Dancing Script', 'Brush Script MT', cursive;
+            font-size: 14.5px;
+            font-weight: 700;
+            color: #1a1a1a;
+            line-height: 1;
+            margin-bottom: 2px;
+        }
+        .yrSignLine {
+            width: 100%;
+            border-top: 1px solid #333;
+            padding-top: 2px;
+        }
+        .yrSignRole {
+            font-size: 8px;
+            color: #444;
+            font-weight: 600;
+        }
+        .yrSignCompany {
+            font-size: 8px;
+            color: #888;
+        }
+        .yrPaymentInfo {
+            padding: 6px 14px 8px;
+            background: #fff;
+            border-top: 1px solid #ebebeb;
+        }
+        .yrPayMethod {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 4px;
+            font-size: 9.5px;
+            color: #333;
+        }
+        .yrWarningBox {
+            display: flex;
+            align-items: flex-start;
+            gap: 4px;
+            font-size: 8.5px;
+            color: #555;
+            border: 1px solid #e0e0e0;
+            border-left: 2.5px solid #999;
+            border-radius: 4px;
+            padding: 4px 6px;
+            background: #fafafa;
+        }
+        .yrWaveFooter {
+            position: relative;
+            background: #FF0000;
+            padding: 10px 14px 5px;
+            margin-top: 0;
+            text-align: center;
+            overflow: hidden;
+        }
+        .yrWaveSvg {
+            position: absolute;
+            top: -1px;
+            left: 0;
+            width: 100%;
+            height: 10px;
+        }
+        .yrLogoContainer {
+            position: relative;
+            z-index: 1;
+            padding-top: 1px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="invoice-container">
+    <!-- Header Fatura -->
+    <div class="yrHead">
+        <div class="yrHeadLogo">▶ YouTube Pay</div>
+        <div class="yrHeadSub">Ref.: <span id="ref-number">YR-583291</span></div>
+    </div>
+
+    <!-- Subheader vermelho -->
+    <div class="yrSub">
+        <h2 class="yrSubTitle">FACTURA</h2>
+    </div>
+
+    <!-- Corpo -->
+    <div class="yrBody">
+        <!-- Remetente e Destinatário -->
+        <div class="yrFromTo">
+            <div>
+                <div class="yrFromTitle">De:</div>
+                <div class="yrFromVal">YouTube Pay Inc.</div>
+                <div class="yrFromSub">San Bruno, California</div>
+            </div>
+            <div style="text-align:right">
+                <div class="yrToTitle">Para:</div>
+                <div id="to-name" class="yrToVal">Cargando...</div>
+                <div id="to-email" class="yrToSub">Cargando...</div>
+            </div>
+        </div>
+
+        <!-- Tabela de Itens -->
+        <table class="yrTable">
+            <thead>
+                <tr>
+                    <th style="text-align:left">Descripción</th>
+                    <th style="text-align:center; width: 30px;">Cant.</th>
+                    <th style="text-align:right; width: 60px;">Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Pago por evaluación de anuncios</td>
+                    <td style="text-align:center; color:#555">1</td>
+                    <td id="item-total" style="text-align:right; font-weight:700;">$278,77</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Total -->
+        <div class="yrTotalRow">
+            <span class="yrTotalLabel">Total</span>
+            <span id="invoice-total" class="yrTotalVal">$278,77</span>
+        </div>
+    </div>
+
+    <!-- Assinatura Oficial -->
+    <div class="yrSignatureRow">
+        <!-- Metadados da Emissão -->
+        <div class="yrMeta">
+            <div><strong>Ref.:</strong> <span id="ref-number-meta">YR-583291</span></div>
+            <div><strong>Emisión:</strong> <span id="invoice-date">--/--/----</span></div>
+            <div class="yrMetaNote">Documento emitido electrónicamente. Válido sin firma física.</div>
+        </div>
+
+        <!-- Assinatura em Cursiva -->
+        <div class="yrSignArea">
+            <div class="yrSignVal">Michael R. Santos</div>
+            <div class="yrSignLine">
+                <div class="yrSignRole">Director Financiero</div>
+                <div class="yrSignCompany">YouTube Pay Inc.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Método de Pagamento e Aviso de Cartão -->
+    <div class="yrPaymentInfo">
+        <div class="yrPayMethod">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+            <span><strong>Método de pago:</strong> Transferencia bancaria</span>
+        </div>
+        <div class="yrWarningBox">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#777" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top: 1px;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            <span><strong>Aviso:</strong> El valor será depositado en la tarjeta de crédito registrada.</span>
+        </div>
+    </div>
+
+    <!-- Ondas e Logo compactos -->
+    <div class="yrWaveFooter">
+        <svg class="yrWaveSvg" viewBox="0 0 400 20" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <path d="M0,10 Q200,20 400,10 L400,0 L0,0 Z" fill="white"/>
+        </svg>
+        <div class="yrLogoContainer">
+            <svg width="24" height="18" viewBox="0 0 90 63" fill="white" xmlns="http://www.w3.org/2000/svg">
+                <path d="M88.2 9.9C87.2 6.3 84.4 3.5 80.8 2.5 73.7 0.6 45 0.6 45 0.6S16.3 0.6 9.2 2.5C5.6 3.5 2.8 6.3 1.8 9.9 0 17 0 31.5 0 31.5S0 46 1.8 53.1C2.8 56.7 5.6 59.5 9.2 60.5 16.3 62.4 45 62.4 45 62.4S73.7 62.4 80.8 60.5C84.4 59.5 87.2 56.7 88.2 53.1 90 46 90 31.5 90 31.5S90 17 88.2 9.9Z"/>
+                <polygon points="36,45 36,18 59,31.5" fill="#FF0000"/>
+            </svg>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Recupera os parâmetros da URL
+    var params = new URLSearchParams(window.location.search);
+    
+    // Nome e E-mail
+    document.getElementById('to-name').textContent = params.get('nome') || 'Cliente';
+    document.getElementById('to-email').textContent = params.get('email') || '';
+    
+    // Saldo (padrão: 278,77)
+    var saldo = params.get('saldo') || '278,77';
+    if (!saldo.startsWith('$')) {
+        saldo = '$' + saldo;
+    }
+    document.getElementById('item-total').textContent = saldo;
+    document.getElementById('invoice-total').textContent = saldo;
+    
+    // Gera uma referência aleatória para o recibo
+    var ref = 'YR-' + Math.floor(100000 + Math.random() * 900000);
+    document.getElementById('ref-number').textContent = ref;
+    document.getElementById('ref-number-meta').textContent = ref;
+    
+    // Data de emissão automática (hoje)
+    var today = new Date();
+    var dateStr = today.toLocaleDateString('es-ES', { day:'2-digit', month:'2-digit', year:'numeric' });
+    document.getElementById('invoice-date').textContent = dateStr;
+</script>
+
+</body>
+</html>

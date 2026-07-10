@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Rewards - Evaluaciones</title>
+    <link rel="stylesheet" href="assets/css/home.css">
+    <link rel="stylesheet" href="assets/css/unlock.css">
+    <link rel="stylesheet" href="assets/css/features.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="header-logo">
+                <div class="logo-icon-container">
+                    <div class="logo-icon">
+                        <svg class="logo-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path>
+                        </svg>
+                    </div>
+                    <div class="logo-pulse"></div>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-title">YouTube</span>
+                    <span class="logo-subtitle">Rewards</span>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="gift-card-badge">
+                    <img src="card.png" alt="Amazon" class="gift-card-img">
+                    <span>$100</span>
+                </div>
+                <div class="header-balance">
+                    <span class="balance-text">$ <span id="balance">0.00</span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Countdown Banner -->
+    <div class="countdown-banner" id="countdownBanner">
+        <span>⚡ Retire <strong id="bannerBalance">tu saldo</strong> ahora — expira en:</span>
+        <span class="countdown-timer" id="countdownTimer">00:00:00</span>
+        <span class="countdown-cta">Sacar Ahora</span>
+    </div>
+
+    <!-- Contenido Principal -->
+    <main class="main-content">
+        <div class="evaluation-card">
+            <h2 class="card-title">Evaluá videos</h2>
+            <p class="subtitle-text">¡Completá 7 evaluaciones para ganar tu recompensa diaria!</p>
+            <div class="progress-indicator">
+                <span id="progressText">0/7 completadas</span>
+            </div>
+            
+            <div class="video-thumbnail" id="videoContainer">
+                <video id="videoPlayer" class="video-player" playsinline preload="metadata">
+                    <source src="assets/videos/video1.mp4" type="video/mp4">
+                    Seu navegador não suporta vídeo.
+                </video>
+                <button class="video-overlay-btn is-play" id="videoOverlayBtn" type="button" aria-label="Play video">
+                    <svg class="video-overlay-icon video-overlay-icon-play" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M8 5.5v13l10-6.5z"></path>
+                    </svg>
+                    <svg class="video-overlay-icon video-overlay-icon-pause" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M7 5h4v14H7zM13 5h4v14h-4z"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="video-info" id="videoInfo">
+                <div class="video-info-content">Mira para ganar recompensas</div>
+                <div class="video-info-timer" id="videoInfoTimer">0s</div>
+            </div>
+            
+            <div class="evaluation-actions is-hidden" id="evaluationActions">
+                <p class="question-text">¿Cuál es tu reacción al ver este video?</p>
+                
+                <div class="action-buttons">
+                <button class="action-btn like-btn" id="likeBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z"/>
+                    </svg>
+                    <span>Me gusta</span>
+                    <span class="emoji">👍</span>
+                </button>
+                <button class="action-btn dislike-btn" id="dislikeBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M15 3H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v2c0 1.1.9 2 2 2h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 23l6.59-6.59c.36-.36.58-.86.58-1.41V5c0-1.1-.9-2-2-2zm4 0v12h4V3h-4z"/>
+                    </svg>
+                    <span>No me gusta</span>
+                    <span class="emoji">👎</span>
+                </button>
+                </div>
+        <!-- Progreso hacia el saque -->
+        <div class="withdraw-progress-wrap" id="withdrawProgressWrap">
+            <div class="withdraw-progress-header">
+                <span>Progreso al saque</span>
+                <strong>$<span id="wpCurrent">0</span> / $8,000</strong>
+            </div>
+            <div class="withdraw-progress-bar-bg">
+                <div class="withdraw-progress-bar-fill" id="wpFill" style="width:0%"></div>
+            </div>
+            <span class="withdraw-progress-unlock-link" id="wpUnlockLink">Sacar ahora sin esperar →</span>
+        </div>
+    </main>
+
+    <!-- Audio de recompensa -->
+    <audio id="rewardAudio" preload="auto">
+        <source src="assets/audio/reward.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Popup rápido (sin valor) -->
+    <div class="quick-popup-overlay" id="quickPopupOverlay">
+        <div class="quick-popup">
+            <div class="quick-popup-icon">💵</div>
+            <p class="quick-popup-message" id="quickPopupMessage">¡Buena elección!</p>
+        </div>
+    </div>
+
+    <!-- Popup de ganancia final (con valor) -->
+    <div class="popup-overlay" id="popupOverlay">
+        <div class="popup">
+            <div class="popup-icon">💰</div>
+            <h3 class="popup-title">¡Ganaste!</h3>
+            <p class="popup-amount" id="popupAmount">+$ 3.00</p>
+            <button class="popup-close" id="popupClose">Continuar</button>
+        </div>
+    </div>
+
+    <!-- Navegación Inferior -->
+    <nav class="bottom-nav">
+        <a href="faq.html" class="nav-item" id="navFaq">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                <line x1="12" y1="17" x2="12.01" y2="17"/>
+            </svg>
+            <span>Preguntas</span>
+        </a>
+        <a href="home.html" class="nav-item active" id="navHome">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+            </svg>
+            <span>Inicio</span>
+        </a>
+        <a href="saque.html" class="nav-item" id="navWithdraw">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="1" y="3" width="22" height="18" rx="2" ry="2"/>
+                <line x1="1" y1="10" x2="23" y2="10"/>
+            </svg>
+            <span>Retirar</span>
+        </a>
+    </nav>
+
+    <script src="assets/js/videos.js"></script>
+    <script src="assets/js/unlock.js"></script>
+    <script src="assets/js/features.js"></script>
+    <script src="assets/js/home.js"></script>
+</body>
+</html>

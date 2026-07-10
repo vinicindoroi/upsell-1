@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preguntas Frecuentes - YouTube Rewards</title>
+    <link rel="stylesheet" href="assets/css/home.css">
+    <link rel="stylesheet" href="assets/css/faq.css">
+    <link rel="stylesheet" href="assets/css/unlock.css">
+    <link rel="stylesheet" href="assets/css/features.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="header-logo">
+                <div class="logo-icon-container">
+                    <div class="logo-icon">
+                        <svg class="logo-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path>
+                        </svg>
+                    </div>
+                    <div class="logo-pulse"></div>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-title">YouTube</span>
+                    <span class="logo-subtitle">Rewards</span>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="gift-card-badge">
+                    <img src="card.png" alt="Amazon" class="gift-card-img">
+                    <span>$100</span>
+                </div>
+                <div class="header-balance">
+                    <span class="balance-text">$ <span id="balance">0.00</span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main class="main-content faq-content">
+        <h1 class="faq-title">Preguntas Frecuentes</h1>
+        
+        <!-- Upsell card -->
+        <div class="faq-upsell-card" id="faqUpsellCard">
+            <span class="faq-upsell-icon">🔓</span>
+            <p class="faq-upsell-title">¿Por qué no puedo retirar mi dinero?</p>
+            <p class="faq-upsell-text">Tu cuenta aún no está verificada para saques. Activa <strong>Premium</strong> y retira tu saldo inmediatamente, sin mínimo ni espera.</p>
+            <button class="faq-upsell-btn" id="faqUnlockBtn">🔓 Verificar y Desbloquear Saque</button>
+        </div>
+
+        <div class="faq-list">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>¿Cómo funciona la aplicación?</span>
+                    <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </div>
+                <div class="faq-answer">
+                    <p>La aplicación es muy sencilla: evaluás videos dándoles un me gusta o no me gusta, y ganás dinero por cada evaluación que completás.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>¿Cuánto gano por evaluación?</span>
+                    <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </div>
+                <div class="faq-answer">
+                    <p>El monto varía entre $2.00 y $5.00 por evaluación. Cada video tiene un valor de recompensa diferente.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>¿Cómo puedo retirar mi dinero?</span>
+                    <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </div>
+                <div class="faq-answer">
+                    <p>Podés retirar tu dinero a través de PayPal. Ingresá a la pestaña "Retirar" en el menú inferior y seguí las instrucciones.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>¿Cuál es el monto mínimo de retiro?</span>
+                    <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </div>
+                <div class="faq-answer">
+                    <p>El monto mínimo de retiro es de $8,000.00. Necesitás acumular al menos esa cantidad y esperar 30 días desde la fecha de tu registro antes de poder solicitar un retiro.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>¿Qué es la tarjeta de regalo de $100 en el encabezado?</span>
+                    <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </div>
+                <div class="faq-answer">
+                    <p>¡Es una tarjeta de regalo de Amazon de $100! Podés retirarla junto con tu saldo después de 30 días de registro y al alcanzar el monto mínimo de retiro.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>¿Cuántas evaluaciones puedo hacer por día?</span>
+                    <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </div>
+                <div class="faq-answer">
+                    <p>Podés completar hasta 7 evaluaciones por día. Este límite se restablece todos los días a medianoche.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>¿La aplicación es segura?</span>
+                    <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </div>
+                <div class="faq-answer">
+                    <p>Sí, la aplicación es completamente segura. Utilizamos encriptación y seguimos todos los estándares de seguridad para proteger tus datos y pagos.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Navegación Inferior -->
+    <nav class="bottom-nav">
+        <a href="faq.html" class="nav-item active" id="navFaq">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                <line x1="12" y1="17" x2="12.01" y2="17"/>
+            </svg>
+            <span>Preguntas</span>
+        </a>
+        <a href="home.html" class="nav-item" id="navHome">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                <polyline points="9 22 9 12 15 12 15 22"/>
+            </svg>
+            <span>Inicio</span>
+        </a>
+        <a href="saque.html" class="nav-item" id="navWithdraw">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="1" y="3" width="22" height="18" rx="2" ry="2"/>
+                <line x1="1" y1="10" x2="23" y2="10"/>
+            </svg>
+            <span>Retirar</span>
+        </a>
+    </nav>
+
+    <script src="assets/js/unlock.js"></script>
+    <script src="assets/js/features.js"></script>
+    <script src="assets/js/faq.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var card = document.getElementById('faqUpsellCard');
+            var btn = document.getElementById('faqUnlockBtn');
+            if (window.isPremiumUser && window.isPremiumUser()) {
+                if (card) card.style.display = 'none';
+            }
+            if (btn) btn.addEventListener('click', function() {
+                if (window.openUnlockPopup) window.openUnlockPopup();
+            });
+        });
+    </script>
+</body>
+</html>
