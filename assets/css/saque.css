@@ -1,0 +1,426 @@
+.saque-content {
+    padding-top: 32px;
+    display: block !important;
+    align-items: unset !important;
+    justify-content: unset !important;
+    min-height: unset !important;
+}
+
+.saque-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #000000;
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.paypal-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    cursor: pointer;
+}
+
+.paypal-logo {
+    height: 100px;
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.2s ease;
+}
+
+.paypal-container:hover .paypal-logo {
+    transform: scale(1.05);
+}
+
+.paypal-container:active .paypal-logo {
+    transform: scale(0.98);
+}
+
+.balance-card {
+    background: #f5f5f5;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.balance-label {
+    font-size: 14px;
+    color: #666666;
+    margin-bottom: 8px;
+}
+
+.balance-value {
+    font-size: 32px;
+    font-weight: 700;
+    color: #000000;
+    margin: 0;
+}
+
+.withdraw-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #000000;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 14px 16px;
+    font-size: 16px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background: #f5f5f5;
+    transition: all 0.2s ease;
+    outline: none;
+    font-family: inherit;
+}
+
+.form-group input:focus {
+    border-color: #FF0000;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.1);
+}
+
+.form-group input::placeholder {
+    color: #999999;
+}
+
+.min-amount {
+    font-size: 12px;
+    color: #666666;
+    margin: 0;
+}
+
+.submit-button {
+    width: 100%;
+    padding: 16px;
+    background: #FF0000;
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 8px;
+    box-shadow: 0 4px 12px rgba(255, 0, 0, 0.3);
+}
+
+.submit-button:hover {
+    background: #e60000;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(255, 0, 0, 0.4);
+}
+
+.submit-button:active {
+    transform: translateY(0);
+}
+
+.submit-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Popup styles (reutilizando do home.css mas com ajustes) */
+.popup-message {
+    font-size: 16px;
+    color: #000000;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.popup-submessage {
+    font-size: 14px;
+    color: #666666;
+    margin-bottom: 24px;
+    line-height: 1.5;
+}
+
+/* ===== Botão de Saque Imediato ===== */
+.instant-withdraw-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 18px;
+    background: #ffffff;
+    border: 1.5px solid #e8e8e8;
+    border-radius: 14px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.25s ease;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    text-align: left;
+}
+
+.instant-withdraw-btn::after {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 4px;
+    background: #FF0000;
+    border-radius: 14px 0 0 14px;
+}
+
+.instant-withdraw-btn:hover {
+    border-color: #FF0000;
+    box-shadow: 0 4px 20px rgba(255, 0, 0, 0.12);
+    transform: translateY(-1px);
+}
+
+.instant-withdraw-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(255, 0, 0, 0.1);
+}
+
+.instant-btn-icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.instant-btn-text {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.instant-btn-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #000000;
+    letter-spacing: 0.2px;
+}
+
+.instant-btn-sub {
+    font-size: 12px;
+    color: #888888;
+    margin-top: 2px;
+}
+
+.instant-btn-arrow {
+    flex-shrink: 0;
+    transition: transform 0.25s ease;
+}
+
+.instant-withdraw-btn:hover .instant-btn-arrow {
+    transform: translateX(4px);
+}
+
+/* ===== Popup de Desbloqueio ===== */
+.unlock-popup {
+    position: relative;
+    padding: 28px 24px 24px;
+    max-width: 340px;
+    width: 92%;
+}
+
+.unlock-popup-x {
+    position: absolute;
+    top: 14px; right: 16px;
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: #999;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 50%;
+    transition: all 0.2s;
+    line-height: 1;
+}
+
+.unlock-popup-x:hover {
+    background: #f0f0f0;
+    color: #333;
+}
+
+.unlock-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.unlock-lock-icon {
+    font-size: 44px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.unlock-title {
+    font-size: 22px;
+    font-weight: 800;
+    color: #000;
+    margin: 0 0 6px;
+}
+
+.unlock-subtitle {
+    font-size: 13px;
+    color: #777;
+    margin: 0;
+}
+
+/* Linha de comparação de saldo */
+.unlock-balance-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #f7f7f7;
+    border-radius: 14px;
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+.unlock-bal-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.unlock-bal-label {
+    font-size: 11px;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.unlock-bal-value {
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.unlock-bal-value.current {
+    color: #FF0000;
+}
+
+.unlock-bal-value.minimum {
+    color: #2ecc71;
+}
+
+.unlock-divider {
+    font-size: 12px;
+    font-weight: 700;
+    color: #bbb;
+    padding: 0 4px;
+}
+
+/* Caixa de info */
+.unlock-info-box {
+    background: linear-gradient(135deg, #fff8e1, #fff3cd);
+    border: 1px solid #ffe082;
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-bottom: 18px;
+    font-size: 13px;
+    color: #5a4400;
+    line-height: 1.6;
+}
+
+.unlock-info-box p {
+    margin: 0 0 4px;
+}
+
+.unlock-info-box p:last-child {
+    margin: 0;
+}
+
+/* Botão CTA dentro do popup */
+.unlock-cta-btn {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, #00b09b, #2ecc71);
+    color: #fff;
+    border: none;
+    border-radius: 14px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 16px rgba(46, 204, 113, 0.4);
+    margin-bottom: 12px;
+    position: relative;
+    overflow: hidden;
+}
+
+.unlock-cta-btn::after {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 0; height: 0;
+    background: rgba(255,255,255,0.25);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s ease, height 0.4s ease;
+}
+
+.unlock-cta-btn:active::after {
+    width: 300px;
+    height: 300px;
+}
+
+.unlock-cta-btn:hover {
+    background: linear-gradient(135deg, #00c9b4, #27d967);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(46, 204, 113, 0.5);
+}
+
+.unlock-cta-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.unlock-footer-note {
+    text-align: center;
+    font-size: 11px;
+    color: #bbb;
+    margin: 0;
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+    .saque-title {
+        font-size: 24px;
+    }
+    
+    .balance-value {
+        font-size: 28px;
+    }
+    
+    .paypal-button {
+        padding: 14px;
+        font-size: 15px;
+    }
+    
+    .form-group input {
+        padding: 12px 14px;
+        font-size: 15px;
+    }
+    
+    .submit-button {
+        padding: 14px;
+        font-size: 15px;
+    }
+
+    .unlock-bal-value {
+        font-size: 18px;
+    }
+}

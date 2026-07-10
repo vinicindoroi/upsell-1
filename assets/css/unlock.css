@@ -1,0 +1,151 @@
+/* =========================================================
+   unlock.css — Shared styles for the unlock popup,
+   countdown banner, progress bar, and FAQ upsell card.
+   Include on every page alongside home.css.
+   ========================================================= */
+
+/* ── Unlock Popup ─────────────────────────────────────── */
+.unlock-popup {
+    position: relative;
+    padding: 28px 20px 22px;
+    max-width: 340px;
+    width: 92%;
+    border-radius: 20px;
+}
+.unlock-popup-x {
+    position: absolute; top: 14px; right: 16px;
+    background: none; border: none; font-size: 18px;
+    color: #999; cursor: pointer; padding: 4px 8px;
+    border-radius: 50%; transition: all 0.2s; line-height: 1;
+}
+.unlock-popup-x:hover { background: #f0f0f0; color: #333; }
+.unlock-header { text-align: center; margin-bottom: 18px; }
+.unlock-lock-icon { font-size: 40px; margin-bottom: 8px; display: block; }
+.unlock-title { font-size: 20px; font-weight: 800; color: #000; margin: 0 0 5px; }
+.unlock-subtitle { font-size: 13px; color: #777; margin: 0; }
+
+.unlock-balance-row {
+    display: flex; align-items: center; gap: 10px;
+    background: #f7f7f7; border-radius: 14px;
+    padding: 14px 12px; margin-bottom: 14px;
+}
+.unlock-bal-item { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px; }
+.unlock-bal-label { font-size: 11px; color: #999; text-transform: uppercase; letter-spacing: 0.5px; }
+.unlock-bal-value { font-size: 20px; font-weight: 800; }
+.unlock-bal-value.current { color: #FF0000; }
+.unlock-bal-value.minimum { color: #2ecc71; }
+.unlock-divider { font-size: 11px; font-weight: 700; color: #bbb; padding: 0 2px; }
+
+.unlock-info-box {
+    background: linear-gradient(135deg, #fff8e1, #fff3cd);
+    border: 1px solid #ffe082; border-radius: 12px;
+    padding: 12px 14px; margin-bottom: 16px;
+    font-size: 13px; color: #5a4400; line-height: 1.6;
+}
+.unlock-info-box p { margin: 0 0 3px; }
+.unlock-info-box p:last-child { margin: 0; }
+
+.unlock-cta-btn {
+    width: 100%; padding: 16px;
+    background: #FF0000;
+    color: #fff; border: none; border-radius: 14px;
+    font-size: 15px; font-weight: 700; cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 16px rgba(255,0,0,0.3);
+    margin-bottom: 10px;
+}
+.unlock-cta-btn:hover {
+    background: #e60000;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(255,0,0,0.4);
+}
+.unlock-cta-btn:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
+.unlock-footer-note { text-align: center; font-size: 11px; color: #bbb; margin: 0; }
+
+/* ── Countdown Banner ─────────────────────────────────── */
+.countdown-banner {
+    background: linear-gradient(90deg, #FF0000, #cc0000);
+    color: #fff; text-align: center;
+    padding: 10px 16px; font-size: 13px;
+    font-weight: 600; display: flex;
+    align-items: center; justify-content: center;
+    gap: 8px; flex-wrap: wrap; cursor: pointer;
+    transition: opacity 0.2s;
+    position: sticky; top: 0; z-index: 90;
+}
+.countdown-banner.hidden { display: none; }
+.countdown-banner:hover { opacity: 0.92; }
+.countdown-timer {
+    background: rgba(255,255,255,0.2);
+    border-radius: 6px; padding: 2px 8px;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 1px; font-size: 14px;
+}
+.countdown-cta {
+    background: #fff; color: #FF0000;
+    border-radius: 20px; padding: 3px 12px;
+    font-size: 12px; font-weight: 700;
+}
+
+/* ── Progress Bar toward $8,000 ──────────────────────── */
+.withdraw-progress-wrap {
+    margin: 16px 0 0;
+    display: flex; flex-direction: column; gap: 6px;
+    background: #fff;
+    border: 1.5px solid #e8e8e8;
+    border-radius: 14px;
+    padding: 14px 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.withdraw-progress-wrap.hidden { display: none; }
+.withdraw-progress-header {
+    display: flex; justify-content: space-between;
+    font-size: 12px; color: #666;
+}
+.withdraw-progress-header strong { color: #000; }
+.withdraw-progress-bar-bg {
+    width: 100%; height: 8px;
+    background: #eee; border-radius: 99px; overflow: hidden;
+}
+.withdraw-progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #FF0000, #ff6060);
+    border-radius: 99px;
+    transition: width 0.6s ease;
+}
+.withdraw-progress-unlock-link {
+    font-size: 12px; color: #FF0000;
+    font-weight: 600; cursor: pointer;
+    text-align: right; text-decoration: underline;
+}
+
+/* ── FAQ Upsell Card ──────────────────────────────────── */
+.faq-upsell-card {
+    background: linear-gradient(135deg, #fff8e1, #fff3cd);
+    border: 1.5px solid #FFD500;
+    border-radius: 16px; padding: 20px 18px;
+    margin-bottom: 20px; text-align: center;
+}
+.faq-upsell-icon { font-size: 36px; margin-bottom: 8px; display: block; }
+.faq-upsell-title { font-size: 17px; font-weight: 800; color: #000; margin: 0 0 6px; }
+.faq-upsell-text { font-size: 13px; color: #5a4400; line-height: 1.6; margin: 0 0 14px; }
+.faq-upsell-btn {
+    display: inline-block; width: 100%;
+    padding: 14px; background: #FF0000;
+    color: #fff; border: none; border-radius: 12px;
+    font-size: 15px; font-weight: 700; cursor: pointer;
+    box-shadow: 0 4px 14px rgba(255,0,0,0.3);
+    transition: all 0.25s ease;
+}
+.faq-upsell-btn:hover {
+    background: #e60000;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255,0,0,0.4);
+}
+
+/* ── Responsive ───────────────────────────────────────── */
+@media (max-width: 480px) {
+    .unlock-bal-value { font-size: 17px; }
+    .unlock-title { font-size: 18px; }
+    .countdown-banner { font-size: 12px; gap: 6px; }
+}
